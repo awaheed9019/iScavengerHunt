@@ -1,0 +1,10 @@
+from twilio.rest.ip_messaging import TwilioIpMessagingClient
+
+account = 'AC0cbf540c508b2ee0d8d5531f0ebbbbb6'
+token = '30553869e7158458f57b5c3d30adcfe7'
+
+client = TwilioIpMessagingClient(account, token)
+
+service = client.services.get(sid="SERVICE_SID")
+for c in service.channels.list():
+    print(c.sid)

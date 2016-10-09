@@ -1,0 +1,61 @@
+<html>
+  <head>
+    <title> {{name}} </title>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.4/css/bootstrap.min.css" integrity="sha384-2hfp1SzUoho7/TsGGGDaFdsuuDL0LX2hnUp6VkX3CUQ2K4K+xjboZdsXyp4oUHZj" crossorigin="anonymous">
+   <style>
+     body {
+       width: 500px;
+     }
+     ul {
+       list-style: none;
+     }
+
+
+     .form-control {
+     width: 280px;
+     float: left;;
+     }
+
+     .btn {
+     float: left;
+     }
+
+     .heading {
+     background-color: #428bca;
+     border-radius: 20px;
+     padding: 10px;
+     color: white;
+     width: 500px;
+     }
+
+   </style>
+  </head>
+
+  <body>
+    <div class="container-fluid">
+      <div class="heading">
+    <h1> {{ name }} </h1>
+    <h2>Channel started by: {{ creation }} </h2>
+      </div>
+
+    <ul>
+    {% for m in messages %}
+    <div class="container">
+	<li>{{m.date_created}}</li>
+	<p> {{m.body}} </p>
+    </div>
+    {% endfor %}
+    </ul>
+
+    <div class="container-fluid">
+      <div class="form-group">
+      <form action="" method="POST">
+	<input type="text" name="text" class="form-control">
+	<input type="submit" name="myform" value="Send" class="btn btn-primary">
+      </form>
+      </div>
+    </div>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.4/js/bootstrap.min.js" integrity="sha384-VjEeINv9OSwtWFLAtmc4JCtEJXXBub00gtSnszmspDLCtC0I4z4nqz7rEFbIZLLU" crossorigin="anonymous"></script>
+    </div>
+  </body>
+</html>

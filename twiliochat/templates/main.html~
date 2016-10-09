@@ -1,0 +1,22 @@
+<html>
+  <head>
+    <title> {{name}} </title>
+
+  </head>
+
+  <body>
+    <h1> {{ name }} </h1>
+    <h2>Channel started by: {{ creation }} </h2>
+
+    <ul>
+    {% for m in messages %}
+    <li> {{ m.body }} </li>
+    {% endfor %}
+    </ul>
+
+    <form action="" method="POST">
+      <input type="text" name="text">
+      <input type="submit" name="myform" value="Send">
+    </form>
+  </body>
+</html>
