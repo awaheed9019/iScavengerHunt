@@ -1,5 +1,6 @@
 package com.example.computer.hackny;
 
+import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.MatrixCursor;
@@ -17,7 +18,7 @@ public class SQLHelper extends SQLiteOpenHelper {
 
     private static final String TAG = "SQLHelper";
 
-    private static final String DATABASE_NAME = "iScavenger8";
+    private static final String DATABASE_NAME = "iScavenger11";
     private static final int DATABASE_VERSION = 1;
 
     private static final String TABLE_PEOPLE = "People";
@@ -27,7 +28,7 @@ public class SQLHelper extends SQLiteOpenHelper {
 
     private static final String PEOPLE_COL_ID = "ID";
     private static final String PEOPLE_COL_USERNAME = "Username";
-    private static final String PEOPLE_COL_HASH_PASS = "Hashed Password";
+    private static final String PEOPLE_COL_HASH_PASS = "Hashed_Password";
     private static final String PEOPLE_COL_IMG_FILENAME = "Img_Filename";
     private static final String PEOPLE_COL_FUNFACT = "Funfact";
 
@@ -98,6 +99,80 @@ public class SQLHelper extends SQLiteOpenHelper {
 
         Utils_debug_awaheed.log_awaheed(TAG, "end of onCreate");
     }
+
+
+    void add_dummy_data(){
+
+        SQLiteDatabase db = this.getWritableDatabase();
+
+        ContentValues values = new ContentValues();
+        values.put(PEOPLE_COL_USERNAME, "awaheed9019");
+        values.put(PEOPLE_COL_HASH_PASS, "62884565aa45aa");
+        values.put(PEOPLE_COL_IMG_FILENAME, "anam.jpg");
+        values.put(PEOPLE_COL_FUNFACT, "Chocolate!!");
+
+        db.insert(TABLE_PEOPLE, null, values);
+
+        values = new ContentValues();
+        values.put(PEOPLE_COL_USERNAME, "danny777");
+        values.put(PEOPLE_COL_HASH_PASS, "12884625aa45ab");
+        values.put(PEOPLE_COL_IMG_FILENAME, "dan.jpg");
+        values.put(PEOPLE_COL_FUNFACT, "Hi :)");
+
+        db.insert(TABLE_PEOPLE, null, values);
+
+        values = new ContentValues();
+        values.put(PEOPLE_COL_USERNAME, "doraTheExplorer");
+        values.put(PEOPLE_COL_HASH_PASS, "42884622aa45ab");
+        values.put(PEOPLE_COL_IMG_FILENAME, "dora.jpg");
+        values.put(PEOPLE_COL_FUNFACT, "Swiper No Swiping!");
+
+        db.insert(TABLE_PEOPLE, null, values);
+
+
+
+
+
+        values = new ContentValues();
+        values.put(TEAMS_COL_NAME, "The A Team");
+        values.put(TEAMS_COL_MEMBER_USERNAME, "awaheed9019");
+        values.put(TEAMS_COL_IS_ADMIN, 1);
+        values.put(TEAMS_COL_TIME_REMAINING, "00:22:00");
+
+        db.insert(TABLE_TEAMS, null, values);
+
+        values = new ContentValues();
+        values.put(TEAMS_COL_NAME, "The A Team");
+        values.put(TEAMS_COL_MEMBER_USERNAME, "abel");
+        values.put(TEAMS_COL_IS_ADMIN, 1);
+        values.put(TEAMS_COL_TIME_REMAINING, "00:22:00");
+
+        db.insert(TABLE_TEAMS, null, values);
+
+        values = new ContentValues();
+        values.put(TEAMS_COL_NAME, "The A Team");
+        values.put(TEAMS_COL_MEMBER_USERNAME, "gonzalez");
+        values.put(TEAMS_COL_IS_ADMIN, 0);
+        values.put(TEAMS_COL_TIME_REMAINING, "00:22:00");
+
+        db.insert(TABLE_TEAMS, null, values);
+
+        values = new ContentValues();
+        values.put(TEAMS_COL_NAME, "The B Team");
+        values.put(TEAMS_COL_MEMBER_USERNAME, "ryuk");
+        values.put(TEAMS_COL_IS_ADMIN, 1);
+        values.put(TEAMS_COL_TIME_REMAINING, "01:25:40");
+
+        db.insert(TABLE_TEAMS, null, values);
+
+
+
+
+        db.close();
+
+    }
+
+
 
     /*
         This function was imported from the github repoitory at https://github.com/sanathp/DatabaseManager_For_Android

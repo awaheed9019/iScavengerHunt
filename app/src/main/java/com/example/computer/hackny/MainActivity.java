@@ -2,6 +2,7 @@ package com.example.computer.hackny;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.database.sqlite.SQLiteOpenHelper;
 import android.nfc.Tag;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -52,6 +53,9 @@ public class MainActivity extends Activity  {
                 toAndroidDatabaseManager();
             }
         });
+
+        SQLHelper sqlh = new SQLHelper(this);
+        sqlh.add_dummy_data();
 
         //Utils_debug_awaheed.log_awaheed(TAG, "before sql");
         //SQLHelper sqlh = new SQLHelper(this);
