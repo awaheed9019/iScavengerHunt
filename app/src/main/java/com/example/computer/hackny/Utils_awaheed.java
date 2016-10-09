@@ -1,18 +1,18 @@
 package com.example.computer.hackny;
 
-import android.support.annotation.NonNull;
-
+import java.math.BigInteger;
+import java.security.DigestException;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Set;
 
 /**
- * Created by Computer on 4/17/2016.
+ * Created by Computer on 10/9/2016.
  */
-public class Utils_string_manip_awaheed {
+public class Utils_awaheed {
 
     public static String intToString(int integer){
         return Integer.toString(integer);
@@ -57,6 +57,22 @@ public class Utils_string_manip_awaheed {
             result.put(temp.get(1), Integer.parseInt(temp.get(0))); //reverses order
         }
         return result;
+    }
+
+    public static String gen_md5(String input){
+        MessageDigest md;
+
+        try {
+            md = java.security.MessageDigest.getInstance("MD5");
+        }
+        catch (NoSuchAlgorithmException e) {
+            System.err.println("NoSuchAlgorithmException for MD5 implementation");
+            return null;
+        }
+
+        md.update(input.getBytes());
+
+        return new BigInteger(1, md.digest()).toString(16);
     }
 
 }
