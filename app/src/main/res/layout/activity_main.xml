@@ -23,12 +23,11 @@
         android:layout_width="wrap_content"
         android:layout_height="40dp" />
 
-    <LinearLayout
+    <ImageView
         android:layout_width="300dp"
         android:layout_height="300dp"
         android:layout_gravity="center"
-        android:background="@drawable/scavenger_hunt">
-    </LinearLayout>
+        android:src="@drawable/scavenger_hunt" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -37,11 +36,13 @@
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:id="@+id/create_scav_b"
         android:text="Start a New Scavenger Hunt" />
 
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:id="@+id/join_scav_b"
         android:text="Join a Scavenger Hunt" />
 
 </LinearLayout>
